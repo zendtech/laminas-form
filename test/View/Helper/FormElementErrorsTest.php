@@ -224,7 +224,7 @@ class FormElementErrorsTest extends CommonTestCase
         $this->assertEquals($helper(), $helper);
     }
 
-    public function testHtmlEscapingOfMessages(): void
+    public function testHtmlEscapingOfMessages()
     {
         $messages = [
             [
@@ -238,7 +238,7 @@ class FormElementErrorsTest extends CommonTestCase
 
         $markup = $this->helper->render($element);
 
-        $this->assertStringNotContainsString('<span>', $markup);
-        $this->assertStringNotContainsString('</span>', $markup);
+        $this->assertNotContains('<span>', $markup);
+        $this->assertNotContains('</span>', $markup);
     }
 }
